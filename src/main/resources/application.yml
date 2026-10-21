@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+fraud:
+  review-threshold: 0.40
+  decline-threshold: 0.75
+  max-amount-ceiling: 500000.0
+  hourly-velocity-limit: 5
+  night-start-hour: 1
+  night-end-hour: 5
+  blocked-countries:
+    - KP
+    - IR
+    - SY

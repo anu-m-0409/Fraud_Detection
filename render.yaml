@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gatehouse-fraud-engine
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    healthCheckPath: /api/stats
+    envVars:
+      - key: PORT
+        value: 8080
