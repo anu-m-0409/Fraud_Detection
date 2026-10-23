@@ -7,20 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/app.css?v=200">
 </head>
 <body>
-  <!-- ink texture filter -->
-  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
-    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="grain"/>
-      <feDisplacementMap in="SourceGraphic" in2="grain" scale="2.4" result="rough"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="11" result="blot"/>
-      <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3 0 0 0 2.35" result="patchy"/>
-      <feComposite in="rough" in2="patchy" operator="in"/>
-    </filter>
-  </svg>
-
   <header class="bar">
     <div class="brand">
       <div class="brand-row">
@@ -121,7 +110,7 @@
 
       <div class="slip blank" id="empty">
         <p class="blank-lead">No Decision Yet</p>
-        <p>Trigger a transaction evaluation or choose a ready-made attack scenario on the left. The live risk verdict, SHAP attribution, and audit trail will stamp here.</p>
+        <p>Trigger a transaction evaluation or choose a ready-made attack scenario on the left. The live risk verdict, SHAP attribution, and rule triggers will stamp here.</p>
       </div>
 
       <article class="slip" id="result" hidden>
@@ -149,12 +138,6 @@
           </div>
         </div>
         <p class="score-line" id="r-score"></p>
-
-        <div class="audit-action-bar">
-          <button type="button" class="btn-audit" id="btn-open-audit">
-            ✨ Generate GenAI Compliance Audit Report
-          </button>
-        </div>
 
         <div class="detail">
           <div>
@@ -188,41 +171,6 @@
     </section>
   </main>
 
-  <!-- GenAI Compliance Modal -->
-  <div class="modal-backdrop" id="audit-modal" hidden>
-    <div class="modal-card">
-      <div class="modal-header">
-        <div>
-          <span class="modal-pre" id="m-hash">GH-AUDIT-E45B91</span>
-          <h3>GenAI Compliance Audit Dossier</h3>
-        </div>
-        <button type="button" class="modal-close" id="btn-close-audit">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="audit-badge-row">
-          <span class="pill" id="m-badge">DECLINE</span>
-          <span class="mono-txt" id="m-txid">TX-XXXXXXXX</span>
-        </div>
-        <h4>Executive Auditor Summary</h4>
-        <p class="audit-narrative" id="m-narrative"></p>
-
-        <h4>Primary Risk Drivers (Top SHAP Contributors)</h4>
-        <ul class="audit-list" id="m-drivers"></ul>
-
-        <h4>Compliance & Hard Policy Violations</h4>
-        <ul class="audit-list" id="m-violations"></ul>
-
-        <div class="recommendation-box">
-          <strong>Mandated Next Action:</strong>
-          <p id="m-action"></p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="go" id="btn-print-audit" onclick="window.print()">Export Audit PDF</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=200"></script>
 </body>
 </html>
